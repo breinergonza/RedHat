@@ -1,0 +1,15 @@
+<p>Hola Rails!</p>
+
+<p>
+    <% if user_signed_in? %>
+      Ingresando con el email: <strong><%= current_user.email %></strong>. <br>
+      <%= link_to 'Mi blog', controller: 'articulos' %>
+    <% else %>
+        <%= link_to 'Registrese', new_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to 'Ingresar', new_user_session_path, :class => 'navbar-link' %>
+    <% end %>
+</p>
+
+
+
+<p id="notice"><strong style="color:red;"><%= notice %></strong></p>

@@ -1,0 +1,38 @@
+<%= link_to 'Editar', edit_articulo_path(@articulo) %>
+<%= link_to 'Regresar', articulos_path %>
+
+<p>
+    <strong>Title:</strong>
+    <%= @articulo.title %>    
+</p>
+<p>
+    <strong>Text:</strong>
+    <%= @articulo.text %>    
+</p>
+
+<fieldset>
+    <h2>Agregar Comentario</h2>
+    <%= form_with(model: [ @articulo, @articulo.comentarios.build ], local: true) do |form| %>
+    <p>
+        <%= form.label :nombre %>
+        <%= form.text_field :nombre %>
+    </p>
+    <p>
+        <%= form.label :cuerpo %>
+        <%= form.text_field :cuerpo %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
+    
+    <% end %>
+</fieldset>
+
+<section>
+    <p>
+        <strong>Texto:</strong>
+        <%= @articulo.text %>
+    </p>
+    <h2>Comentario</h2>
+    <%= render @articulo.comentarios %>
+</section>
